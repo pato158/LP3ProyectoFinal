@@ -28,6 +28,8 @@ namespace LP3ProyectoFinal.Login
             if (Usuarios.Contains(txtUsuarioLogin.Text))
             {
                 mensaje.Text = "Bienvenido";
+                Session["usuarioActual"] = txtUsuarioLogin.Text;
+                Response.Redirect("~/Tienda/IndexTienda.aspx");
 
             }
             else

@@ -1,0 +1,24 @@
+﻿PARTE 1)
+
+formulario registro de usuario - solo nombre de usuario textbox
+
+formulario Loguin - campo user (1session) y campo nombre nuestro (1cookie)
+
+formulario carrito - 1session carrito
+
+formulario cierre sesión
+
+--------------------------------
+
+para poder abrir un carrito va a tener que existir una sesión, si no, nos envía al Loguin de nuevo.
+
+al cerrar sesión, mata la sesión de user.
+
+
+--------------------------------
+
+vamos a necesitar 2 masterPage
+
+1) ítems - registrar y loguearse
+2) ítems - carrito y logout
+
