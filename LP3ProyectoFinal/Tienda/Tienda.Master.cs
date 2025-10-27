@@ -22,6 +22,21 @@ namespace LP3ProyectoFinal.Carrito
             else {
                 labelUsuarioActual.Text = usuarioActual;
             }
+            var contador = -1;
+            if (Request.Cookies.Count > 1)
+            {
+                foreach (string nombre in Request.Cookies.AllKeys)
+                {
+                    contador++;
+                }
+            }
+            if (contador >0)
+            {
+                cantProductos.Text = contador.ToString();
+            }
+            else {
+                cantProductos.Text = "0";
+            }
         }
     }
 }
