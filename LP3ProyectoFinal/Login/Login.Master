@@ -21,6 +21,8 @@
 
             </asp:ContentPlaceHolder>
         </div>
+        <footer class="fixed-bottom text-center bg-warning-subtle text-warning-emphasis"> Ferreyra Patricio ©</footer>
     </form>
 </body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </html>

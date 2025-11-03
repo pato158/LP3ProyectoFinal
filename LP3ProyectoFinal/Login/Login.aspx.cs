@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LP3ProyectoFinal.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,32 +12,55 @@ namespace LP3ProyectoFinal.Login
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            List<string> Usuarios;
+            Usuario userRegist = new Usuario();
+            mensaje.Text = "";
+            List<Usuario> Usuarios;
             if (Session["usuarios"] != null)
             {
-                Usuarios = (List<string>)Session["usuarios"];
+                Usuarios = (List<Usuario>)Session["usuarios"];
             }
             else
             {
-                Usuarios = new List<string>();
+                Usuarios = new List<Usuario>();
             }
-            if (Usuarios.Contains(txtUsuarioLogin.Text))
+            bool registrado = false;
+            foreach (Usuario usuario in Usuarios)
             {
-                mensaje.Text = "Bienvenido";
-                Session["usuarioActual"] = txtUsuarioLogin.Text;
-                Response.Redirect("~/Tienda/IndexTienda.aspx");
+                if (usuario.user == txtUsuarioLogin.Text)
+                {
+                    mensaje.Text = "Bienvenido";
+                    Session["usuarioActual"] = usuario;
+                    userRegist = usuario;
+                    registrado = true;
+                    break;
+                }
 
+            }
+          
+            System.Threading.Thread.Sleep(2000);
+            if (registrado)
+            {
+                if (userRegist.idRol == 1)
+                {
+                    Response.Redirect("~/Tienda/IndexTienda.aspx");
+                    return;
+                }
+                if (userRegist.idRol == 2)
+                {
+                    Response.Redirect("~/Administracion/IndexAdmin.aspx");
+                    return;
+                }
             }
             else
             {
                 mensaje.Text = "Usuario no registrado";
             }
-           
+
         }
     }
 }

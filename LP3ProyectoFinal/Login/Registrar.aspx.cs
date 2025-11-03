@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LP3ProyectoFinal.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,27 +17,39 @@ namespace LP3ProyectoFinal.Login
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            List<string> Usuarios ;
+            List<Usuario> Usuarios;
             if (Session["usuarios"] != null)
             {
-                Usuarios = (List<string>)Session["usuarios"];
-            }
-            else { 
-                Usuarios = new List<string>();
-            }
-            if (Usuarios.Contains(txtUsuario.Text))
-            {
-                mensaje.Text = "Usuario ya registrado";
-                return;
+                Usuarios = (List<Usuario>)Session["usuarios"];
             }
             else
             {
-                Usuarios.Add(txtUsuario.Text);
+                Usuarios = new List<Usuario>();
+            }
+            bool existe = false;
+            foreach (Usuario usuario in Usuarios)
+            {
+                if (usuario.user==txtUser.Text)
+                {
+                    mensaje.Text = "Usuario ya registrado";
+                    existe = true;
+                    break;
+                }
+            }
+            if(!existe)
+            {
+                Usuario nuevoUsuario = new Usuario()
+                {
+                    user = txtUser.Text,
+                    nombre = txtnombre.Text,
+                    idRol = Convert.ToInt32(idRol.SelectedValue)
+                };
+                Usuarios.Add(nuevoUsuario);
                 Session["usuarios"] = Usuarios;
                 mensaje.Text = "Usuario registrado con Exito";
-                txtUsuario.Text = "";
+                txtUser.Text = "";
             }
-           
+
         }
     }
 }

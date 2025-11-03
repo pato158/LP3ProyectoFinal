@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administracion\IndexAdmin.aspx" />
     <Content Include="CriteriosDeAceptacion.txt" />
     <Content Include="images\barney.jpeg" />
     <Content Include="images\bart.jpeg" />
@@ -84,13 +85,47 @@
     <Content Include="images\otto.jpeg" />
     <Content Include="images\scratchy.jpeg" />
     <Content Include="images\skinner.jpeg" />
+    <Content Include="images\total.png" />
     <Content Include="images\willie.jpeg" />
     <Content Include="Login\Login.aspx" />
     <Content Include="Login\Registrar.aspx" />
+    <Content Include="Tienda\Carro.aspx" />
+    <Content Include="Tienda\Comprado.aspx" />
     <Content Include="Tienda\IndexTienda.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion\Administracion.Master.cs">
+      <DependentUpon>Administracion.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\Administracion.Master.designer.cs">
+      <DependentUpon>Administracion.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\IndexAdmin.aspx.cs">
+      <DependentUpon>IndexAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\IndexAdmin.aspx.designer.cs">
+      <DependentUpon>IndexAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Producto.cs" />
+    <Compile Include="Models\ProductoDTO.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Tienda\Carro.aspx.cs">
+      <DependentUpon>Carro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tienda\Carro.aspx.designer.cs">
+      <DependentUpon>Carro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tienda\Comprado.aspx.cs">
+      <DependentUpon>Comprado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tienda\Comprado.aspx.designer.cs">
+      <DependentUpon>Comprado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tienda\Tienda.Master.cs">
       <DependentUpon>Tienda.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,6 +166,7 @@
   <ItemGroup>
     <Content Include="Login\Login.Master" />
     <Content Include="Tienda\Tienda.Master" />
+    <Content Include="Administracion\Administracion.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

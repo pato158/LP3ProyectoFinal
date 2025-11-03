@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LP3ProyectoFinal.Models;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -12,10 +13,11 @@ namespace LP3ProyectoFinal.Tienda
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var productos = new List<string>() { "homer","bart", "lisa", "marge", "grampa", "krusty", "itchy", "scratchy", "skinner", "willie", 
-                "otto", "ned", "barney", "carl", "lenny", "moes", "bob", "nelson"};
-            if (Session["productos"] != null) {
-                Session["productos"] = (List<string>)productos;
+            List<Producto> productos = new List<Producto>();
+           
+            if (Session["productos"] != null)
+            {
+                productos = (List<Producto>)Session["productos"];
             }
             var carro = new List<string>();
             foreach (string nombre in Request.Cookies.AllKeys)
@@ -23,41 +25,36 @@ namespace LP3ProyectoFinal.Tienda
                 string valor = Request.Cookies[nombre]?.Value;
                 carro.Add(valor);
             }
-            foreach (string producto in productos) {
-
-                /*compraobar si se compro*/
-
+            foreach (Producto producto in productos)
+            {
                 Panel div = new Panel();
                 div.CssClass = "card m-3";
                 Literal titulo = new Literal();
                 TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
-                string capitalizado = textInfo.ToTitleCase(producto.ToLower());
+                string capitalizado = textInfo.ToTitleCase(producto.descripcion.ToLower());
                 titulo.Text = $"<h3>{capitalizado}</h3>";
 
                 Literal precio = new Literal();
-                precio.Text = "<h5>$ 12.000</h5>";
-               
+                precio.Text = $"<h5>$ {producto.precio}</h5>";
+
                 Image img = new Image();
-                img.ImageUrl = $"~/images/{producto.ToLower()}.jpeg"; 
+                img.ImageUrl = $"~/images/{producto.img}";
                 img.Width = Unit.Pixel(150);
                 img.Height = Unit.Pixel(150);
-                img.AlternateText = producto;
+                img.AlternateText = producto.descripcion;
                 Button comprar = new Button();
-                if (carro.Contains(producto))
+                if (carro.Contains(producto.descripcion))
                 {
                     comprar.Text = "Eliminar";
-                    comprar.OnClientClick = $"Eliminar('{producto}')";
+                    comprar.OnClientClick = $"Eliminar('{producto.descripcion}')";
                     comprar.CssClass = "btn btn-danger";
                 }
-                else { 
-                   
+                else
+                {
                     comprar.Text = "Comprar";
-                    comprar.OnClientClick = $"Comprar('{producto}')";
+                    comprar.OnClientClick = $"Comprar('{producto.descripcion}')";
                     comprar.CssClass = "btn btn-success";
                 }
-
-              
-                
                 div.Controls.Add(titulo);
                 div.Controls.Add(img);
                 div.Controls.Add(precio);
@@ -65,9 +62,8 @@ namespace LP3ProyectoFinal.Tienda
 
                 phProductos.Controls.Add(div);
 
-
             }
-        }
-      
+        }      
+
     }
 }

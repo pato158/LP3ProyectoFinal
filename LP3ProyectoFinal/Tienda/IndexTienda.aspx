@@ -10,7 +10,7 @@
     </div>
 <script type="text/javascript">
     function Comprar(producto) {       
-        document.cookie = producto + "=" + producto + "; path=/; max-age=36000"; 
+        document.cookie = producto + "=" + producto + "; path=/; max-age=1800"; 
         
     }
     function Eliminar(producto) {
