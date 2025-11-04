@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administracion\IndexAdmin.aspx" />
+    <Content Include="Administracion\Producto.aspx" />
     <Content Include="CriteriosDeAceptacion.txt" />
     <Content Include="images\barney.jpeg" />
     <Content Include="images\bart.jpeg" />
@@ -108,6 +109,13 @@
     </Compile>
     <Compile Include="Administracion\IndexAdmin.aspx.designer.cs">
       <DependentUpon>IndexAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Producto.aspx.cs">
+      <DependentUpon>Producto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\Producto.aspx.designer.cs">
+      <DependentUpon>Producto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\ProductoDTO.cs" />
