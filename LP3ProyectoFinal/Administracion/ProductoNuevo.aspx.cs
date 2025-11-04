@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LP3ProyectoFinal.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,13 +9,12 @@ using System.Web.UI.WebControls;
 
 namespace LP3ProyectoFinal.Administracion
 {
-    public partial class Producto : System.Web.UI.Page
+    public partial class ProductoNuevo1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
         protected void Button2_Click(object sender, EventArgs e)
         {
             txtDescripcion.Text = "";
@@ -32,7 +32,7 @@ namespace LP3ProyectoFinal.Administracion
                 Directory.CreateDirectory(ruta);
                 resultado = " <br />directorio creado";
             }
-           
+
 
             bool apto = true;
             if (!FileUpload1.HasFile)
@@ -40,42 +40,63 @@ namespace LP3ProyectoFinal.Administracion
                 apto = false;
                 resultado += " <br />Seleccione un archivo";
             }
-            if (FileUpload1.PostedFile.ContentLength > 61440) {//3MB=> 3(mb) * 1024(KB) * 1024(B) = 3145728(B);  60Kb => 60(KB) * 1024(B) = 61440;
+            if (FileUpload1.PostedFile.ContentLength > 61440)
+            {//3MB=> 3(mb) * 1024(KB) * 1024(B) = 3145728(B);  60Kb => 60(KB) * 1024(B) = 61440;
                 resultado += " <br />archivo de mucho tamaño";
+                apto = false;
             }
             var extension = Path.GetExtension(FileUpload1.PostedFile.FileName).ToLower();
-            if (File.Exists($"{ruta}/{txtDescripcion.Text+extension}"))
+            if (File.Exists($"{ruta}/{txtDescripcion.Text + extension}"))
             {
                 resultado += $" <br />El archivo {txtDescripcion.Text} ya existe ";
-               
-            } 
-            if (extension != ".jpg" && extension != ".jpeg" && extension != ".png") 
-            { 
+                apto = false;
+
+            }
+            if (extension != ".jpg" && extension != ".jpeg" && extension != ".png")
+            {
                 resultado += " <br />Formato no válido ";
+                apto = false;
 
             }
             decimal valor;
             if (decimal.TryParse(txtPrecio.Text, out valor))
             {
                 valor = Math.Round(valor, 2);
+
             }
             else
             {
                 resultado += "<br />El precio ingresado no corresponde";
+                apto |= false;
             }
 
-
-            try
+            if (apto)
             {
+                try
+                {
+                    FileUpload1.SaveAs($"{ruta}/{txtDescripcion.Text}{extension}");
+                    List<Producto> productos = new List<Producto>();
+                    if (Session["productos"] != null)
+                    {
+                        productos = (List<Producto>)Session["productos"];
+                    }
+                    Producto nuevo = new Producto()
+                    {
+                        descripcion = txtDescripcion.Text,
+                        precio = valor,
+                        img = txtDescripcion.Text + extension
+                    };
+                    productos.Add( nuevo );
+                    Session["productos"] = productos;
+                    resultado = "Producto guardado con Exito";
 
-
-            }
-            catch (Exception ex)
-            {
-                resultado = ex.Message;
+                }
+                catch (Exception ex)
+                {
+                    resultado = ex.Message;
+                }
             }
             mensaje.Text = resultado;
-
         }
     }
 }

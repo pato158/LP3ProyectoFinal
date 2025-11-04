@@ -15,7 +15,7 @@ namespace LP3ProyectoFinal.Models
         public List<Producto> iniciarProductos() {
             var random = new Random();
             var lista = new List<Producto>();
-            var productos = new List<string>() { "homer","bart", "lisa", "marge", "grampa", "krusty", "itchy", "scratchy", "bob","skinner", "willie",
+            var productos = new List<string>() {"grampa", "krusty", "itchy", "scratchy", "bob","skinner", "willie",
                 "otto","milhouse", "nelson","ralph","ned","jeff", "barney", "carl", "lenny", "moes"};
             foreach (var prod in productos)
             {

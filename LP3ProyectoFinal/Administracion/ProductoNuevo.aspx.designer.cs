@@ -11,7 +11,7 @@ namespace LP3ProyectoFinal.Administracion
 {
 
 
-    public partial class Producto
+    public partial class ProductoNuevo1
     {
 
         /// <summary>
@@ -49,6 +49,15 @@ namespace LP3ProyectoFinal.Administracion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+        /// <summary>
+        /// Control RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// Control FileUpload1.

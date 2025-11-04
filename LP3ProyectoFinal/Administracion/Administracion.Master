@@ -18,7 +18,7 @@
             <header class="d-flex justify-content-between mb-3" style="height: 150px; background: #62c1f0; background: linear-gradient(0deg, rgba(98, 193, 240, 0.09) 0%, rgba(98, 186, 240, 0.61) 100%);">
                 <div class="m-3">
                     <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-warning text-black" NavigateUrl="~/Administracion/IndexAdmin.aspx">Index</asp:HyperLink>
-                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-warning text-black" NavigateUrl="~/Administracion/Producto.aspx">Nuevo Producto</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-warning text-black" NavigateUrl="~/Administracion/ProductoNuevo.aspx">Nuevo Producto</asp:HyperLink>
                 </div>
                 <div class="m-3 dropdown">
                     <button class="text-black  btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

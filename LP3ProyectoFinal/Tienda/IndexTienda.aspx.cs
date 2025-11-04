@@ -19,6 +19,7 @@ namespace LP3ProyectoFinal.Tienda
             {
                 productos = (List<Producto>)Session["productos"];
             }
+            productos.OrderBy(p => p.descripcion);
             var carro = new List<string>();
             foreach (string nombre in Request.Cookies.AllKeys)
             {

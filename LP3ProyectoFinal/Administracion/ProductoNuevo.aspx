@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administracion/Administracion.Master" AutoEventWireup="true" CodeBehind="Producto.aspx.cs" Inherits="LP3ProyectoFinal.Administracion.Producto" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administracion/Administracion.Master" AutoEventWireup="true" CodeBehind="ProductoNuevo.aspx.cs" Inherits="LP3ProyectoFinal.Administracion.ProductoNuevo1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,7 +7,8 @@
     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDescripcion" Display="Dynamic" ErrorMessage="Ingrese el nombre del producto" ForeColor="#990000"></asp:RequiredFieldValidator>
     <br />
     <label>Precio:</label><asp:TextBox ID="txtPrecio" runat="server" ></asp:TextBox>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtPrecio" Display="Dynamic" ErrorMessage="Valor del precio incorrecto" ForeColor="#990000" ValidationExpression="^\d+([.]\d{1,2})?$"></asp:RegularExpressionValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtPrecio" Display="Dynamic" ErrorMessage="Valor del precio incorrecto " ForeColor="#990000" ValidationExpression="^\d+([.]\d{1,2})?$"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPrecio" Display="Dynamic" ErrorMessage=" Ingrese el valor del producto" ForeColor="#990000"></asp:RequiredFieldValidator>
     <br />
     <label>Imagen:</label><asp:FileUpload ID="FileUpload1" runat="server" />
     <br />
