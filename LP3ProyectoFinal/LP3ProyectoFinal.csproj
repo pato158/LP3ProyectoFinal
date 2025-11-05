@@ -86,9 +86,11 @@
     <Content Include="images\otto.jpeg" />
     <Content Include="images\scratchy.jpeg" />
     <Content Include="images\skinner.jpeg" />
+    <Content Include="images\the-simpsons-couch-gag.gif" />
     <Content Include="images\total.png" />
     <Content Include="images\willie.jpeg" />
     <Content Include="Login\Login.aspx" />
+    <Content Include="Login\Opening.aspx" />
     <Content Include="Login\Registrar.aspx" />
     <Content Include="Tienda\Carro.aspx" />
     <Content Include="Tienda\Comprado.aspx" />
@@ -116,6 +118,13 @@
     </Compile>
     <Compile Include="Administracion\ProductoNuevo.aspx.designer.cs">
       <DependentUpon>ProductoNuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Opening.aspx.cs">
+      <DependentUpon>Opening.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Opening.aspx.designer.cs">
+      <DependentUpon>Opening.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\ProductoDTO.cs" />

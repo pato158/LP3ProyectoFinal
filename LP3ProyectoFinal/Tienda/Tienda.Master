@@ -12,7 +12,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body  style="background: #d1f5ff; background: linear-gradient(0deg, rgba(209, 245, 255, 1) 0%, rgba(197, 232, 250, 1) 100%);"min-height:100vh >
     <form id="form1" runat="server">
         <div>
             <header class="sticky-top d-flex justify-content-between mb-3" style="height: 150px; background: #bcddeb;
@@ -29,14 +29,15 @@ background: linear-gradient(0deg, rgba(188, 221, 235, 1) 0%, rgba(83, 178, 237, 
                     </button>
                     <ul class="dropdown-menu">
                         <li>
-                            <asp:Label ID="labelNombre" runat="server" Text="user"></asp:Label>
+                            <asp:Label ID="labelNombre" runat="server" Text="user" CssClass="m-3 fw-bold text-capitalize"></asp:Label>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                        
                         <li>
-                            <asp:Button ID="cerrarSesion" runat="server" Text="Cerrar Sesion" OnClick="cerrarSesion_Click" CssClass="btn btn-warning" />
+                            <asp:Button ID="cerrarSesion" runat="server" Text="Cerrar Sesion" OnClick="cerrarSesion_Click"
+                                CssClass="btn btn-warning" CausesValidation="false"/>
                         </li>
                     </ul>
                 </div>
@@ -44,6 +45,7 @@ background: linear-gradient(0deg, rgba(188, 221, 235, 1) 0%, rgba(83, 178, 237, 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+           <footer class="fixed-bottom text-center bg-warning-subtle text-warning-emphasis"> Ferreyra Patricio ©</footer>
     </form>
 </body>
 <!-- Bootstrap JS (v5.x) -->

@@ -48,6 +48,8 @@ namespace LP3ProyectoFinal.Login
                 Session["usuarios"] = Usuarios;
                 mensaje.Text = "Usuario registrado con Exito";
                 txtUser.Text = "";
+                txtnombre.Text = "";
+                idRol.SelectedIndex = 0;
             }
 
         }

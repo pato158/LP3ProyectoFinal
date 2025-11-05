@@ -21,7 +21,7 @@ namespace LP3ProyectoFinal.Carrito
             }
             else 
             { 
-                Response.Redirect("~/Login/Registrar.aspx");
+                Response.Redirect("~/Login/Opening.aspx");
                 return;
             }
             var contador = 0;
@@ -41,7 +41,7 @@ namespace LP3ProyectoFinal.Carrito
         protected void cerrarSesion_Click(object sender, EventArgs e)
         {
             Session["usuarioActual"] = null;
-            Response.Redirect("~/Login/Login.aspx");
+            Response.Redirect("~/Login/Opening.aspx");
         }
     }
 }

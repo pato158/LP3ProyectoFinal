@@ -12,17 +12,20 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="background: #d1f5ff; background: linear-gradient(0deg, rgba(209, 245, 255, 1) 0%, rgba(197, 232, 250, 1) 100%); min-height: 100vh;">
     <form id="form1" runat="server">
         <div>
-                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-info" NavigateUrl="~/Login/Login.aspx">Login</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-info" NavigateUrl="~/Login/Registrar.aspx">Registrarme</asp:HyperLink>
+            <header class="sticky-top d-flex justify-content-between mb-3" style="height: 100px; background: #bcddeb; background: linear-gradient(0deg, rgba(188, 221, 235, 1) 0%, rgba(83, 178, 237, 1) 100%);">
+                <div>
+                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-warning" NavigateUrl="~/Login/Login.aspx">Login</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-warning" NavigateUrl="~/Login/Registrar.aspx">Registrarme</asp:HyperLink>
+                </div>
+            </header>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-
             </asp:ContentPlaceHolder>
         </div>
-        <footer class="fixed-bottom text-center bg-warning-subtle text-warning-emphasis"> Ferreyra Patricio ©</footer>
+        <footer class="fixed-bottom text-center bg-warning-subtle text-warning-emphasis">Ferreyra Patricio ©</footer>
     </form>
 </body>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </html>
