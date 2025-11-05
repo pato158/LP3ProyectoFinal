@@ -36,7 +36,7 @@ namespace LP3ProyectoFinal.Tienda
                 titulo.Text = $"<h3>{capitalizado}</h3>";
 
                 Literal precio = new Literal();
-                precio.Text = $"<h5>$ {producto.precio}</h5>";
+                precio.Text = $"<h5>$ {producto.precio.ToString("N2")}</h5>";
 
                 Image img = new Image();
                 img.ImageUrl = $"~/images/{producto.img}";

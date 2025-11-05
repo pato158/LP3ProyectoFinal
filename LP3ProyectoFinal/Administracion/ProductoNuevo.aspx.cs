@@ -1,6 +1,7 @@
 ﻿using LP3ProyectoFinal.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -59,7 +60,7 @@ namespace LP3ProyectoFinal.Administracion
 
             }
             decimal valor;
-            if (decimal.TryParse(txtPrecio.Text, out valor))
+            if (decimal.TryParse(txtPrecio.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out valor))
             {
                 valor = Math.Round(valor, 2);
 

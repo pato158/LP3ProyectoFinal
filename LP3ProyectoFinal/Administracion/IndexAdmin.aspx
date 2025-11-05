@@ -22,7 +22,7 @@
             <div class="mb-3 border border-warning p-2  " style="max-width: 50vw; min-width: 30vw;  background-color: rgb(201, 227, 232);">
                 <label class="form-label">Descripcion:</label>
                 <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control"></asp:TextBox>
-                 <asp:TextBox ID="txtDescripcioOriginal" runat="server" CssClass="form-control" ></asp:TextBox>
+                 <asp:TextBox ID="txtDescripcioOriginal" runat="server" CssClass="d-none" ></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDescripcion" Display="Dynamic" ErrorMessage="Ingrese el nombre del producto" ForeColor="#990000"></asp:RequiredFieldValidator>
                 <br />
                 <label class="form-label">Precio:</label>

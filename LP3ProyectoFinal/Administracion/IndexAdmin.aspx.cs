@@ -1,6 +1,8 @@
 ﻿using LP3ProyectoFinal.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -39,7 +41,7 @@ namespace LP3ProyectoFinal.Administracion
                 GridViewRow row = GridView1.Rows[index];
                 txtDescripcion.Text = row.Cells[1].Text;
                 txtDescripcioOriginal.Text = row.Cells[1].Text;
-                txtPrecio.Text = row.Cells[2].Text;
+                txtPrecio.Text = row.Cells[2].Text.Replace(",",".");
 
 
             }
@@ -59,7 +61,7 @@ namespace LP3ProyectoFinal.Administracion
         {
             string nombre = txtDescripcioOriginal.Text;
             string nombreNuevo = txtDescripcion.Text;
-            decimal nuevoPrecio = Convert.ToDecimal(txtPrecio.Text);
+           
             List<Producto> productos = new List<Producto>();
             if (Session["productos"] != null)
             {
@@ -67,17 +69,32 @@ namespace LP3ProyectoFinal.Administracion
             }
             Producto editar = new Producto();
             bool apto = true;
+            decimal valor;
+            string resultado = string.Empty;
+            if (decimal.TryParse(txtPrecio.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out valor))
+            {
+                valor = Math.Round(valor, 2);
+
+            }
+            else
+            {
+                resultado += "<br />El precio ingresado no corresponde";
+                mensaje.Text = resultado;
+                return;
+               
+            }
+
+
             foreach (Producto producto in productos)
             {
                 if (producto.descripcion == nombre)
                 {
                     editar = producto;
                     editar.descripcion = nombreNuevo;
-                    editar.precio = nuevoPrecio;
+                    editar.precio = valor;
                     break;
                 }
             }
-            string resultado = string.Empty;
             string ruta = $"{Server.MapPath("../")}images";
             resultado = "Cambios guardado con exito";
             if (FileUpload1.HasFile)
